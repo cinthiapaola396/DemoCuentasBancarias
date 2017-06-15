@@ -8,6 +8,7 @@ package democuentasbancarias;
 import java.util.Scanner;
 import model.CuentaBasica;
 import model.CuentaDeAhorro;
+import model.CuentaDeCheques;
 
 /**
  *
@@ -83,7 +84,26 @@ public class Main {
        System.out.println(misAhorros.getSaldo() + misAhorros.CalcularInteres() - 
               misAhorros.calcularComisionPorSaldo());
        
+        CuentaDeCheques misCheques = new CuentaDeCheques(16470267,"Cinthia Paola Cab muñoz",200);
+        System.out.println(" Cliente: " + misCheques.getCliente());
+        System.out.println("El número de cuenta es de: " + misCheques.getNumeroDeCuenta());
+        System.out.println("El saldo es de:" + misCheques.getSaldo());
         
+        System.out.println("Depositar:");
+        double cantidad;
+        cantidad = entrada.nextInt();
+        misCheques.depositar(cantidad);
+        System.out.println("El saldo es de:" + misCheques.getSaldo());
+        
+        System.out.println("retirar:");
+        cantidad = entrada.nextInt();
+        misCheques.retirar(cantidad);
+        
+        System.out.println("Comisión por cheques:" + misCheques.calcularComisionPorChequesRebotados());
+        System.out.println("El saldo es de:" + (misCheques.getSaldo()- cantidad));
+        
+       
+                
     }
     
 }
